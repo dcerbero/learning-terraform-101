@@ -25,3 +25,9 @@ Validate your configuration. The example configuration provided above is valid, 
 - #### terraform plan
 Command creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure. 
 
+### Inspect your state
+When you apply your configuration, Terraform writes data into a file called terraform.tfstate. This file contains the IDs and properties of the resources Terraform created so that it can manage or destroy those resources going forward. Your state file contains all of the data in your configuration and could also contain sensitive values in plaintext, so do not share it or check it in to source control.
+
+For teams or larger projects, consider storing your state remotely. Remote stage storage enables collaboration using Terraform but is beyond the scope of this tutorial.
+
+- #### Inspect the current state using terraform show
