@@ -14,3 +14,9 @@ terraform {
 provider "azurerm" {
   features {}
 }
+
+# location usc = us-east-2
+resource "azurerm_resource_group" "rg" {
+  name     = "myTFResourceGroup"
+  location = "usc"
+}
