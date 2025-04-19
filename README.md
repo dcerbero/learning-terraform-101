@@ -49,3 +49,10 @@ terraform show
 ```
 terraform state list
 ```
+
+- #### Output values
+When building complex infrastructure, Terraform stores hundreds or thousands of attribute values for all your resources. As a user of Terraform, you may only be interested in a few values of importance. Outputs designate which data to display
+example
+```
+terraform state output resource_group_id
+```
