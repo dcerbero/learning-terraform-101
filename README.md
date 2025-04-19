@@ -56,3 +56,9 @@ example
 ```
 terraform state output resource_group_id
 ```
+
+- #### Create resource dependencies
+Terraform infers dependencies between resources based on the configuration given, so that resources are created and destroyed in the correct order. Occasionally, however, Terraform cannot infer dependencies between different parts of your infrastructure, and you will need to create an explicit dependency with the depends_on argument.
+```
+ depends_on = [example.rg]
+```
