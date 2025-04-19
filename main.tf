@@ -10,24 +10,12 @@ terraform {
 provider "azurerm" {
   features {}
 }
-
-resource "azurerm_resource_group" "rg" {
-  name     = var.resource_group_name
-  location = var.location
-  tags = {
-    Environment = "Terraform Getting Started"
-    Team        = "DevOps"
-  }
-
+module "rg" {
+  source = "./modules/rg"
 }
 
-# Create a virtual network
-resource "azurerm_virtual_network" "vnet" {
-  name                = "myTFVnet"
-  address_space       = ["10.0.0.0/16"]
-  location            = var.location
-  resource_group_name = var.resource_group_name
-
-  depends_on = [azurerm_resource_group.rg]
+module "vnet" {
+  source     = "./modules/vnet"
+  depends_on = [module.rg]
 }
 
